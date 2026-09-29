@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Medecin - Volet medical</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Dr Alexandrie COVILLON &middot; <strong>Medecin</strong> &middot; Service Chirurgie &middot; Deconnexion</div>
+</header>
+<nav class="fil">Accueil &rsaquo; Pre-admissions a completer &rsaquo; <strong>PA-0142 &mdash; Volet medical</strong></nav>
+
+<main>
+  <h1>Volet medical &mdash; pre-admission PA-0142</h1>
+  <p class="sous-titre">Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; profil medecin</p>
+
+  <div class="bandeau-patient">
+    <div><span>Patient</span><strong>DUPONT Claire</strong></div>
+    <div><span>Nee le</span><strong>12/04/1978 (48 ans)</strong></div>
+    <div><span>Service</span><strong>Chirurgie</strong></div>
+    <div><span>Hospitalisation prevue</span><strong>14/10/2026</strong></div>
+    <div><span>Motif</span><strong>Arthroscopie du genou droit</strong></div>
+    <div><span>Statut</span><strong><span class="badge attente">En attente</span></strong></div>
+  </div>
+
+  <div class="rgpd">
+    <strong>RGPD &mdash; donnees de sante.</strong> Les informations de cette page sont visibles uniquement par le profil Medecin.
+    Elles sont masquees pour la secretaire medicale, le departement administratif et l'informaticien admin.
+    Chaque consultation et chaque modification est enregistree dans le journal d'audit (compte, date, patient concerne).
+  </div>
+
+  <section class="carte">
+    <h2>Volet administratif <span class="badge sensible">Lecture seule</span></h2>
+    <div class="grille">
+      <div class="champ"><label>Coordonnees du patient</label><input value="14 rue des Lilas, 59400 Cambrai" readonly></div>
+      <div class="champ"><label>Saisi par</label><input value="Sophie BERNARD (secretaire) - 22/09/2026" readonly></div>
+    </div>
+    <p class="note">Le medecin consulte l'administratif mais ne le modifie pas (matrice des roles, mission 1).</p>
+  </section>
+
+  <section class="carte">
+    <h2>Antecedents <span class="badge sensible">Donnee de sante</span></h2>
+    <div class="champ large">
+      <label>Antecedents medicaux et chirurgicaux</label>
+      <textarea>Appendicectomie 1996. HTA traitee depuis 2019. Pas d'antecedent anesthesique particulier.</textarea>
+    </div>
+  </section>
+
+  <section class="carte">
+    <h2>Allergies <span class="badge sensible">Donnee de sante</span></h2>
+    <table>
+      <tr><th>Allergie</th><th>Precision</th><th></th></tr>
+      <tr><td>Penicilline</td><td>Urticaire generalisee (2011)</td><td><button type="button" class="btn-danger">Retirer</button></td></tr>
+      <tr><td>Latex</td><td>Reaction cutanee locale</td><td><button type="button" class="btn-danger">Retirer</button></td></tr>
+    </table>
+    <div class="grille" style="margin-top:12px">
+      <div class="champ"><label>Ajouter une allergie</label>
+        <select><option>-- Referentiel allergies --</option><option>Iode</option><option>Aspirine</option><option>Arachide</option></select></div>
+      <div class="champ"><label>Precision</label><input placeholder="Nature et date de la reaction"></div>
+    </div>
+    <p class="note">Allergies choisies dans un referentiel (table ALLERGIE) plutot qu'en texte libre.</p>
+  </section>
+
+  <section class="carte">
+    <h2>Traitements en cours <span class="badge sensible">Donnee de sante</span></h2>
+    <div class="champ large">
+      <label>Traitements et posologies</label>
+      <textarea>Amlodipine 5 mg - 1 cp le matin. Pas d'anticoagulant.</textarea>
+    </div>
+  </section>
+
+  <section class="carte">
+    <h2>Avis pre-operatoire <span class="badge sensible">Donnee de sante</span></h2>
+    <div class="champ large">
+      <label>Avis du praticien <span class="obli">*</span></label>
+      <textarea placeholder="Conclusion, reserves eventuelles, examens complementaires demandes"></textarea>
+    </div>
+    <div class="grille" style="margin-top:12px">
+      <div class="champ"><label>Conclusion</label>
+        <select><option>Favorable</option><option>Favorable sous reserve</option><option>Defavorable</option></select></div>
+      <div class="champ"><label>Auteur / date de saisie</label><input value="Dr COVILLON - 22/09/2026" readonly></div>
+    </div>
+  </section>
+
+  <section class="carte">
+    <h2>Prise en charge financiere</h2>
+    <div class="masque">
+      Section reservee au <strong>departement administratif</strong> &mdash; non accessible depuis ce profil.<br>
+      (mutuelle, numero d'adherent, validation de la prise en charge, facturation)
+    </div>
+  </section>
+
+  <div class="actions">
+    <button type="button" class="btn-secondaire">Enregistrer en brouillon</button>
+    <button type="button" class="btn-primaire">Valider le volet medical</button>
+  </div>
+
+  <section class="carte" style="margin-top:26px">
+    <h2>Ecran d'entree &mdash; mes pre-admissions a completer</h2>
+    <table>
+      <tr><th>N&deg;</th><th>Patient</th><th>Hospitalisation</th><th>Volet medical</th></tr>
+      <tr><td>PA-0142</td><td>DUPONT Claire</td><td>14/10/2026</td><td><span class="badge attente">A completer</span></td></tr>
+      <tr><td>PA-0139</td><td>BOUCHER Yanis</td><td>06/10/2026</td><td><span class="badge attente">A completer</span></td></tr>
+      <tr><td>PA-0135</td><td>ADAM Louise</td><td>29/09/2026</td><td><span class="badge validee">Complete</span></td></tr>
+    </table>
+    <p class="note">Le medecin ne voit que les pre-admissions des patients de son service.</p>
+  </section>
+</main>
+</body>
+</html>

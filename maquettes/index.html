@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquettes v1 - AP Pre-admission LPFH - Sprint 2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app"><div class="logo">LPFH &middot; Pre-admission</div><div class="user">Maquettes v1 &mdash; Sprint 2 / Mission 3</div></header>
+<main>
+  <h1>Maquettes v1 &mdash; profils secretaire medicale et medecin</h1>
+  <p class="sous-titre">Seance 3 (Mission 12-1) &mdash; base de navigation a valider par le Product Owner en Sprint Review.</p>
+
+  <section class="carte">
+    <h2>Ecrans maquettes</h2>
+    <ul class="liste">
+      <li><a href="secretaire-creation-preadmission.html">Secretaire medicale &mdash; creation d'une pre-admission</a> (+ liste des pre-admissions du service)</li>
+      <li><a href="medecin-volet-medical.html">Medecin &mdash; consultation et complement du volet medical</a> (+ liste des volets a completer)</li>
+    </ul>
+    <p class="note">Profils departement administratif et informaticien admin : seances 4 et 5 du sprint.</p>
+  </section>
+
+  <section class="carte">
+    <h2>Parcours &mdash; secretaire medicale</h2>
+    <ol class="liste">
+      <li>Connexion (profil issu de HABILITATION active)</li>
+      <li>Liste des pre-admissions du service &rarr; bouton "Nouvelle pre-admission"</li>
+      <li>Recherche patient (nom + date de naissance) : patient existant ou creation</li>
+      <li>Saisie en 4 blocs : identite &rarr; coordonnees &rarr; hospitalisation &rarr; couverture</li>
+      <li>Recapitulatif &rarr; enregistrement : statut <em>EN_ATTENTE</em>, statut prise en charge <em>EN_ATTENTE</em></li>
+      <li>Retour a la liste, la nouvelle pre-admission y apparait</li>
+    </ol>
+  </section>
+
+  <section class="carte">
+    <h2>Parcours &mdash; medecin</h2>
+    <ol class="liste">
+      <li>Connexion</li>
+      <li>Liste "mes pre-admissions a completer" (patients de son service)</li>
+      <li>Ouverture d'une pre-admission : bandeau patient + administratif en lecture seule</li>
+      <li>Saisie du volet medical : antecedents, allergies (referentiel), traitements, avis pre-operatoire</li>
+      <li>Validation &rarr; VOLET_MEDICAL cree avec id_compte_auteur et date_saisie</li>
+    </ol>
+  </section>
+
+  <section class="carte">
+    <h2>Fil rouge RGPD rendu visible des la maquette</h2>
+    <ul class="liste">
+      <li>Bandeau d'avertissement en haut de chaque ecran manipulant des donnees personnelles ou de sante.</li>
+      <li>Section volet medical <strong>masquee</strong> (hachurage explicite) sur l'ecran secretaire.</li>
+      <li>Section prise en charge financiere <strong>masquee</strong> sur l'ecran medecin.</li>
+      <li>Etiquette "Donnee de sante" sur chaque bloc concerne, "Lecture seule" sur l'administratif cote medecin.</li>
+      <li>Champs obligatoires signales par un asterisque rouge.</li>
+      <li>Mention du journal d'audit (table JOURNAL_AUDIT) sur les ecrans sensibles.</li>
+    </ul>
+  </section>
+
+  <section class="carte">
+    <h2>Correspondance maquette / modele de donnees</h2>
+    <table>
+      <tr><th>Bloc d'ecran</th><th>Table(s)</th></tr>
+      <tr><td>Identite / coordonnees patient</td><td>PATIENT</td></tr>
+      <tr><td>Hospitalisation</td><td>PRE_ADMISSION, SERVICE</td></tr>
+      <tr><td>Couverture</td><td>PATIENT_MUTUELLE, MUTUELLE</td></tr>
+      <tr><td>Antecedents / traitements / avis</td><td>VOLET_MEDICAL</td></tr>
+      <tr><td>Allergies</td><td>PATIENT_ALLERGIE, ALLERGIE</td></tr>
+      <tr><td>Utilisateur connecte et droits</td><td>COMPTE, PERSONNEL, HABILITATION, PROFIL</td></tr>
+      <tr><td>Tracabilite</td><td>JOURNAL_AUDIT</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

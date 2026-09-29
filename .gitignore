@@ -1,0 +1,15 @@
+# Secrets
+.env
+
+# Fichiers de verrouillage Office / LibreOffice
+~$*
+.~lock.*#
+
+# Fichiers vides / brouillons
+test.docx
+
+# IDE et systeme
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
