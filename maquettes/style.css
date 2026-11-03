@@ -49,3 +49,37 @@ th{background:var(--bleu-clair);color:var(--bleu);font-size:12px;text-transform:
 ul.liste{margin:0;padding-left:18px}
 ul.liste li{margin-bottom:6px}
 a{color:var(--bleu)}
+
+/* --- Ajouts seance 5 (profils administratif / DSI, connexion, recherche) --- */
+.us{display:inline-block;background:#e8daef;color:#5b2c6f;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:10px;margin-right:4px;letter-spacing:.3px}
+.badge.refusee{background:#fadbd8;color:var(--rouge)}
+.badge.inactif{background:#e5e8e8;color:var(--gris-txt)}
+.badge.info{background:var(--bleu-clair);color:var(--bleu)}
+.alerte{border-left:4px solid;padding:10px 14px;border-radius:0 3px 3px 0;margin-bottom:14px;font-size:13px}
+.alerte.erreur{background:#fdedec;border-color:var(--rouge);color:var(--rouge)}
+.alerte.succes{background:#e9f7ef;border-color:var(--vert);color:#145a32}
+.alerte.info{background:var(--bleu-clair);border-color:var(--bleu);color:var(--bleu)}
+.btn-petit{padding:4px 10px;font-size:12px}
+button[disabled]{opacity:.45;cursor:not-allowed}
+.filtres{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.filtres .champ{min-width:150px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi div{background:#fff;border:1px solid var(--bord);border-radius:4px;padding:12px 14px}
+.kpi span{display:block;font-size:11px;color:var(--gris-txt);text-transform:uppercase;letter-spacing:.4px}
+.kpi strong{font-size:22px;color:var(--bleu)}
+.barre{background:#eaeded;border-radius:3px;height:14px;min-width:140px}
+.barre span{display:block;height:100%;border-radius:3px;background:var(--bleu)}
+.barre span.haut{background:var(--rouge)}
+.barre span.bas{background:#7fb3d5}
+.login{max-width:400px;margin:50px auto 0}
+.login .logo-login{text-align:center;color:var(--bleu);font-weight:bold;font-size:18px;letter-spacing:1px;margin-bottom:4px}
+.login .champ{margin-bottom:12px}
+.login button{width:100%}
+.etats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.etats .carte{margin:0}
+.modale{border:2px solid var(--bleu);box-shadow:0 8px 24px rgba(27,79,114,.18)}
+.modale h2{border-bottom-color:var(--bleu)}
+.cadenas{font-size:40px;text-align:center;color:var(--rouge);margin-bottom:6px}
+tr.revoquee td{color:#99a3a4;text-decoration:line-through}
+tr.revoquee td:last-child,tr.revoquee td .badge{text-decoration:none}
+td:last-child{white-space:nowrap}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Administratif - Pre-admissions a traiter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Nadia DUPONT &middot; <strong>Departement administratif</strong> &middot; Administration et finances &middot; Deconnexion</div>
+</header>
+<nav class="fil">Accueil &rsaquo; <strong>Pre-admissions a traiter</strong></nav>
+
+<main>
+  <h1>Pre-admissions en attente de validation</h1>
+  <p class="sous-titre"><span class="us">US-07</span> Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; profil departement administratif</p>
+
+  <div class="kpi">
+    <div><span>En attente</span><strong>7</strong></div>
+    <div><span>Sans couverture</span><strong style="color:var(--rouge)">2</strong></div>
+    <div><span>Validees (30 j)</span><strong>41</strong></div>
+    <div><span>Refusees (30 j)</span><strong>3</strong></div>
+  </div>
+
+  <div class="rgpd">
+    <strong>RGPD &mdash;</strong> profil sans acces au volet medical : ni antecedents, ni allergies, ni traitements, ni avis pre-operatoire.
+    Le departement administratif voit les pre-admissions de tous les services medicaux.
+  </div>
+
+  <section class="carte">
+    <h2>Filtres</h2>
+    <div class="filtres">
+      <div class="champ"><label>Service</label><select><option>Tous les services</option><option>Chirurgie</option><option>Neurologie</option><option>Radiologie</option></select></div>
+      <div class="champ"><label>Statut prise en charge</label><select><option>En attente</option><option>Validee</option><option>Refusee</option><option>Tous</option></select></div>
+      <div class="champ"><label>Hospitalisation avant le</label><input type="date" value="2026-10-31"></div>
+      <div class="champ"><label>Patient</label><input placeholder="Nom"></div>
+      <button type="button" class="btn-primaire">Filtrer</button>
+    </div>
+  </section>
+
+  <section class="carte">
+    <h2>Dossiers a traiter (tri : hospitalisation la plus proche)</h2>
+    <table>
+      <tr><th>N&deg;</th><th>Patient</th><th>Service</th><th>Hospitalisation</th><th>Couverture</th><th>Prise en charge</th><th></th></tr>
+      <tr><td>PA-0140</td><td>MOREL Paul</td><td>Neurologie</td><td>08/10/2026</td><td>MGEN</td><td><span class="badge attente">En attente</span></td><td><button type="button" class="btn-primaire btn-petit">Traiter</button></td></tr>
+      <tr><td>PA-0138</td><td>NOEL Fatima</td><td>Chirurgie</td><td>09/10/2026</td><td>Harmonie Mutuelle</td><td><span class="badge attente">En attente</span></td><td><button type="button" class="btn-primaire btn-petit">Traiter</button></td></tr>
+      <tr><td>PA-0142</td><td>DUPONT Claire</td><td>Chirurgie</td><td>14/10/2026</td><td>Harmonie Mutuelle</td><td><span class="badge attente">En attente</span></td><td><button type="button" class="btn-primaire btn-petit">Traiter</button></td></tr>
+      <tr><td>PA-0143</td><td>BLANC Elodie</td><td>Radiologie</td><td>15/10/2026</td><td><span class="badge refusee">Non renseignee</span></td><td><span class="badge attente">En attente</span></td><td><button type="button" class="btn-primaire btn-petit">Traiter</button></td></tr>
+      <tr><td>PA-0137</td><td>DUPUIS Henri</td><td>Chirurgie</td><td>21/10/2026</td><td><span class="badge refusee">Non renseignee</span></td><td><span class="badge attente">En attente</span></td><td><button type="button" class="btn-primaire btn-petit">Traiter</button></td></tr>
+    </table>
+    <p class="note">Les dossiers "couverture non renseignee" restent visibles mais ne pourront pas etre valides (US-08).</p>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Informaticien admin - Journal d'audit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Marc GOUSSE &middot; <strong>Informaticien admin</strong> &middot; DSI &middot; Deconnexion</div>
+</header>
+<nav class="fil">Administration &rsaquo; <strong>Journal d'audit</strong></nav>
+
+<main>
+  <h1>Journal d'audit &mdash; acces aux donnees sensibles</h1>
+  <p class="sous-titre"><span class="us">US-12</span> Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; profil informaticien admin</p>
+
+  <div class="rgpd">
+    <strong>RGPD &mdash; consultation seule.</strong> Les journaux ne sont ni modifiables ni supprimables depuis l'application
+    (le compte applicatif n'a que INSERT et SELECT sur JOURNAL_AUDIT). Aucun profil metier n'accede a cet ecran, hors demande du DPO (Roger PARENT).
+    Le patient est identifie par son numero interne, sans donnee de sante.
+  </div>
+
+  <section class="carte">
+    <h2>Filtres</h2>
+    <div class="filtres">
+      <div class="champ"><label>Du</label><input type="date" value="2026-10-01"></div>
+      <div class="champ"><label>Au</label><input type="date" value="2026-10-06"></div>
+      <div class="champ"><label>Compte</label><input placeholder="Identifiant"></div>
+      <div class="champ"><label>Action</label><select><option>Toutes</option><option>CONNEXION</option><option>CONSULTATION_VOLET_MEDICAL</option><option>MODIF_VOLET_MEDICAL</option><option>CREATION_PRE_ADMISSION</option><option>VALIDATION_PEC</option><option>GESTION_COMPTE</option><option>REVOCATION_HABILITATION</option></select></div>
+      <div class="champ"><label>Resultat</label><select><option>Tous</option><option>SUCCES</option><option>ECHEC</option><option>REFUS</option></select></div>
+      <button type="button" class="btn-primaire">Filtrer</button>
+      <button type="button" class="btn-secondaire">Exporter pour le DPO</button>
+    </div>
+  </section>
+
+  <section class="carte">
+    <h2>Evenements (1 248 &mdash; page 1 / 63)</h2>
+    <table>
+      <tr><th>Date / heure</th><th>Compte</th><th>Action</th><th>Objet</th><th>Patient</th><th>IP</th><th>Resultat</th></tr>
+      <tr><td>06/10/2026 09:14</td><td>m.gousse</td><td>REVOCATION_HABILITATION</td><td>HABILITATION #14</td><td>&mdash;</td><td>192.168.10.21</td><td><span class="badge validee">Succes</span></td></tr>
+      <tr><td>06/10/2026 08:47</td><td>s.leroy</td><td>CONSULTATION_VOLET_MEDICAL</td><td>PRE_ADMISSION #142</td><td>#3051</td><td>192.168.30.14</td><td><span class="badge refusee">Refus</span></td></tr>
+      <tr><td>06/10/2026 08:31</td><td>a.covillon</td><td>MODIF_VOLET_MEDICAL</td><td>VOLET_MEDICAL #88</td><td>#3051</td><td>192.168.20.07</td><td><span class="badge validee">Succes</span></td></tr>
+      <tr><td>06/10/2026 08:12</td><td>n.dupont</td><td>VALIDATION_PEC</td><td>PRE_ADMISSION #138</td><td>#3047</td><td>192.168.100.32</td><td><span class="badge validee">Succes</span></td></tr>
+      <tr><td>06/10/2026 08:02</td><td>j.martin</td><td>CONNEXION</td><td>&mdash;</td><td>&mdash;</td><td>192.168.20.11</td><td><span class="badge validee">Succes</span></td></tr>
+      <tr><td>06/10/2026 07:55</td><td><em>t.petit (saisi)</em></td><td>CONNEXION</td><td>&mdash;</td><td>&mdash;</td><td>192.168.40.09</td><td><span class="badge refusee">Refus</span></td></tr>
+      <tr><td>06/10/2026 07:54</td><td><em>jmartin (saisi)</em></td><td>CONNEXION</td><td>&mdash;</td><td>&mdash;</td><td>192.168.20.11</td><td><span class="badge attente">Echec</span></td></tr>
+    </table>
+    <p class="note">Aucun bouton de modification ou de suppression : lecture seule. Duree de conservation a fixer avec le DPO (repere CNIL : 6 mois a 1 an).</p>
+  </section>
+</main>
+</body>
+</html>

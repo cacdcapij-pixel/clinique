@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Informaticien admin - Gestion des comptes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Marc GOUSSE &middot; <strong>Informaticien admin</strong> &middot; DSI &middot; Deconnexion</div>
+</header>
+<nav class="fil">Administration &rsaquo; <strong>Comptes utilisateurs</strong></nav>
+
+<main>
+  <h1>Gestion des comptes utilisateurs</h1>
+  <p class="sous-titre"><span class="us">US-10</span> Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; profil informaticien admin</p>
+
+  <div class="rgpd">
+    <strong>RGPD &mdash;</strong> la DSI gere les acces mais n'a <strong>aucun acces fonctionnel aux donnees patients</strong>.
+    Toute creation, modification ou desactivation de compte est journalisee. Ecran reserve au profil informaticien admin (refus sinon, y compris par URL directe).
+  </div>
+
+  <section class="carte">
+    <h2>Comptes</h2>
+    <div class="filtres" style="margin-bottom:14px">
+      <div class="champ"><label>Recherche</label><input placeholder="Nom ou identifiant"></div>
+      <div class="champ"><label>Service</label><select><option>Tous</option><option>Chirurgie</option><option>Neurologie</option><option>Radiologie</option><option>Administration et finances</option><option>DSI</option></select></div>
+      <div class="champ"><label>Etat</label><select><option>Tous</option><option>Actifs</option><option>Desactives</option></select></div>
+      <button type="button" class="btn-secondaire">Filtrer</button>
+      <button type="button" class="btn-primaire" style="margin-left:auto">+ Nouveau compte</button>
+    </div>
+    <table>
+      <tr><th>Identifiant</th><th>Personnel</th><th>Service</th><th>Profil(s) actif(s)</th><th>Derniere connexion</th><th>Etat</th><th></th></tr>
+      <tr><td>j.martin</td><td>MARTIN Julie</td><td>Chirurgie</td><td>Secretaire medicale</td><td>06/10/2026 08:02</td><td><span class="badge validee">Actif</span></td>
+        <td><button type="button" class="btn-secondaire btn-petit">Modifier</button> <button type="button" class="btn-danger btn-petit">Desactiver</button></td></tr>
+      <tr><td>a.covillon</td><td>COVILLON Alexandrie</td><td>Chirurgie</td><td>Medecin, Chef de service</td><td>05/10/2026 17:45</td><td><span class="badge validee">Actif</span></td>
+        <td><button type="button" class="btn-secondaire btn-petit">Modifier</button> <button type="button" class="btn-danger btn-petit">Desactiver</button></td></tr>
+      <tr><td>n.dupont</td><td>DUPONT Nadia</td><td>Administration et finances</td><td>Administratif</td><td>06/10/2026 07:58</td><td><span class="badge validee">Actif</span></td>
+        <td><button type="button" class="btn-secondaire btn-petit">Modifier</button> <button type="button" class="btn-danger btn-petit">Desactiver</button></td></tr>
+      <tr><td>e.roussel</td><td>ROUSSEL Emma</td><td>Neurologie</td><td><span class="badge attente">Habilitation suspendue</span></td><td>12/09/2026 10:11</td><td><span class="badge validee">Actif</span></td>
+        <td><button type="button" class="btn-secondaire btn-petit">Modifier</button> <button type="button" class="btn-danger btn-petit">Desactiver</button></td></tr>
+      <tr><td>t.petit</td><td>PETIT Thomas</td><td>Radiologie</td><td>Secretaire medicale</td><td>02/06/2026 09:30</td><td><span class="badge inactif">Desactive</span></td>
+        <td><button type="button" class="btn-secondaire btn-petit">Modifier</button> <button type="button" class="btn-secondaire btn-petit">Reactiver</button></td></tr>
+    </table>
+  </section>
+
+  <section class="carte modale">
+    <h2>Nouveau compte</h2>
+    <div class="alerte erreur">L'identifiant "j.martin" existe deja. Choisissez un autre identifiant.</div>
+    <div class="grille">
+      <div class="champ"><label>Membre du personnel <span class="obli">*</span></label>
+        <select><option>FONTAINE Chloe - Chirurgie - Secretaire medicale (interim)</option><option>-- Personnel sans compte --</option></select></div>
+      <div class="champ"><label>Identifiant <span class="obli">*</span></label><input value="j.martin" style="border-color:var(--rouge)"></div>
+      <div class="champ"><label>Profil initial <span class="obli">*</span></label>
+        <select><option>Secretaire medicale</option><option>Medecin</option><option>Chef de service</option><option>Administratif</option><option>Informaticien admin</option></select></div>
+      <div class="champ"><label>Validite de l'habilitation</label>
+        <div style="display:flex;gap:8px"><input type="date" value="2026-10-06" style="flex:1"><input type="date" value="2026-12-31" style="flex:1"></div></div>
+      <div class="champ large"><label>Mot de passe provisoire</label><input value="Genere automatiquement - a changer a la 1re connexion" readonly></div>
+    </div>
+    <p class="note">Un compte ne peut pas etre cree sans profil : la creation genere aussi la 1re HABILITATION. Un seul compte par membre du personnel.</p>
+    <div class="actions">
+      <button type="button" class="btn-secondaire">Annuler</button>
+      <button type="button" class="btn-primaire">Creer le compte</button>
+    </div>
+  </section>
+
+  <section class="carte modale">
+    <h2>Desactiver le compte j.martin ?</h2>
+    <p>La connexion sera bloquee immediatement. La fiche PERSONNEL, l'historique et les pre-admissions creees par ce compte sont conserves.</p>
+    <div class="actions">
+      <button type="button" class="btn-secondaire">Annuler</button>
+      <button type="button" class="btn-danger">Confirmer la desactivation</button>
+    </div>
+  </section>
+</main>
+</body>
+</html>

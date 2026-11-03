@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Administratif - Taux d'occupation des chambres</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Nadia DUPONT &middot; <strong>Departement administratif</strong> &middot; Administration et finances &middot; Deconnexion</div>
+</header>
+<nav class="fil">Accueil &rsaquo; Statistiques &rsaquo; <strong>Taux d'occupation des chambres</strong></nav>
+
+<main>
+  <h1>Taux d'occupation des chambres par service</h1>
+  <p class="sous-titre"><span class="us">US-09</span> Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; profil departement administratif</p>
+
+  <section class="carte">
+    <h2>Periode d'analyse</h2>
+    <div class="filtres">
+      <div class="champ"><label>Raccourci</label><select><option>Periode libre</option><option>Mois precedent</option><option>Trimestre precedent</option><option>Annee en cours</option></select></div>
+      <div class="champ"><label>Du <span class="obli">*</span></label><input type="date" value="2026-09-01"></div>
+      <div class="champ"><label>Au <span class="obli">*</span></label><input type="date" value="2026-09-30"></div>
+      <div class="champ"><label>Service</label><select><option>Tous les services medicaux</option><option>Chirurgie</option><option>Neurologie</option><option>Radiologie</option></select></div>
+      <button type="button" class="btn-primaire">Calculer</button>
+      <button type="button" class="btn-secondaire">Exporter (CSV)</button>
+    </div>
+  </section>
+
+  <div class="kpi">
+    <div><span>Periode</span><strong style="font-size:16px">01/09 &rarr; 30/09/2026</strong></div>
+    <div><span>Nombre de jours</span><strong>30</strong></div>
+    <div><span>Lits disponibles</span><strong>36</strong></div>
+    <div><span>Taux global clinique</span><strong>77,9 %</strong></div>
+  </div>
+
+  <section class="carte">
+    <h2>Resultat par service</h2>
+    <table>
+      <tr><th>Service</th><th>Chambres</th><th>Lits</th><th>Jours-lits disponibles</th><th>Jours-lits occupes</th><th>Taux</th><th style="width:22%"></th></tr>
+      <tr><td>Chirurgie</td><td>12</td><td>18</td><td>540</td><td>486</td><td><strong>90,0 %</strong></td><td><div class="barre"><span class="haut" style="width:90%"></span></div></td></tr>
+      <tr><td>Neurologie</td><td>9</td><td>12</td><td>360</td><td>281</td><td><strong>78,1 %</strong></td><td><div class="barre"><span style="width:78.1%"></span></div></td></tr>
+      <tr><td>Radiologie</td><td>5</td><td>6</td><td>180</td><td>74</td><td><strong>41,1 %</strong></td><td><div class="barre"><span class="bas" style="width:41.1%"></span></div></td></tr>
+      <tr><th>Total</th><th>26</th><th>36</th><th>1080</th><th>841</th><th>77,9 %</th><th></th></tr>
+    </table>
+    <p class="note">Taux = jours-lits occupes / (lits x jours de la periode). Les jours occupes sont calcules a partir des SEJOUR
+      (date d'entree / date de sortie) recoupes avec la periode &mdash; jamais a partir des pre-admissions. Seuil d'alerte en rouge : &ge; 85 %.</p>
+  </section>
+
+  <section class="carte">
+    <h2>Erreur de saisie</h2>
+    <div class="alerte erreur">La date de fin doit etre posterieure ou egale a la date de debut.</div>
+  </section>
+
+  <div class="rgpd">
+    <strong>RGPD &mdash;</strong> statistiques agregees uniquement : aucun nom de patient n'apparait sur cet ecran. Ecran reserve au departement administratif.
+  </div>
+</main>
+</body>
+</html>

@@ -21,3 +21,11 @@ AP « Pré-admission LPFH » — Sprint 2 / Mission 3 — Séance 3 (22/09/2026)
 
 ## Outil de maquettage
 13. On reste sur des maquettes HTML/CSS versionnées sur le dépôt Git (réutilisables comme base d'intégration en mission 4), ou le PO attend-il du Figma/Balsamiq ?
+
+## Nouvelles questions — Séance 4 (Mission 12-2)
+Repérées dans la BDD socle et les ordres de mission. Statut : posées, réponse du PO à noter.
+
+N1. Comment se calcule le taux d'occupation : lits occupés / lits disponibles, à partir des pré-admissions validées (prévisionnel) ou des séjours réels ? *(Tableau de bord d'occupation — la BDD socle n'a pas encore de table CHAMBRE ni SÉJOUR, prévues pour un script 05_)*
+N2. Les colonnes de validation de la prise en charge seront-elles dans PRE_ADMISSION ou dans une table dédiée ? *(Validation de la prise en charge — colonnes reportées dans la BDD socle)*
+N3. L'informaticien peut-il **supprimer** un compte, ou seulement le **révoquer** ? *(Gestion des comptes — HABILITATION n'a que ACTIVE, SUSPENDUE et REVOQUEE)*
+N4. Le département administratif voit-il le motif d'hospitalisation ? Donnée médicale ou administrative ? *(Validation de la prise en charge — restriction RGPD à trancher)*

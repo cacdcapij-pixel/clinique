@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Connexion</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Non connecte</div>
+</header>
+
+<main>
+  <h1>Connexion a l'application</h1>
+  <p class="sous-titre"><span class="us">US-01</span> Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; tous profils</p>
+
+  <section class="carte login">
+    <div class="logo-login">Clinique LPFH</div>
+    <p class="note" style="text-align:center;margin:0 0 18px">Application de pre-admission &mdash; acces reserve au personnel</p>
+    <form>
+      <div class="champ"><label>Identifiant <span class="obli">*</span></label><input value="j.martin"></div>
+      <div class="champ"><label>Mot de passe <span class="obli">*</span></label><input type="password" value="xxxxxxxxxx"></div>
+      <button type="button" class="btn-primaire">Se connecter</button>
+    </form>
+    <p class="note" style="text-align:center">Mot de passe oublie : contacter la DSI.</p>
+  </section>
+
+  <h2 style="font-size:15px;color:var(--bleu);margin:30px 0 12px">Etats de l'ecran apres validation</h2>
+  <div class="etats">
+    <section class="carte">
+      <h2>Identifiants valides</h2>
+      <div class="alerte succes">Redirection vers l'accueil du profil (secretaire, medecin, administratif ou DSI).</div>
+      <p class="note">Le profil est lu dans HABILITATION (statut ACTIVE, dates valides) via la vue V_CONNEXION.</p>
+    </section>
+    <section class="carte">
+      <h2>Identifiants invalides</h2>
+      <div class="alerte erreur">Identifiant ou mot de passe incorrect.</div>
+      <p class="note">Message volontairement generique : on ne precise pas quel champ est faux.</p>
+    </section>
+    <section class="carte">
+      <h2>Compte desactive / habilitation inactive</h2>
+      <div class="alerte erreur">Acces refuse. Contactez la DSI.</div>
+      <p class="note">Compte actif = 0, habilitation SUSPENDUE / REVOQUEE ou periode expiree.</p>
+    </section>
+  </div>
+
+  <div class="rgpd" style="margin-top:18px">
+    <strong>RGPD &mdash;</strong> chaque connexion et chaque tentative echouee est enregistree dans JOURNAL_AUDIT
+    (identifiant saisi, adresse IP, date, resultat SUCCES / ECHEC / REFUS). Acces uniquement en HTTPS.
+  </div>
+</main>
+</body>
+</html>

@@ -2,56 +2,84 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<title>Maquettes v1 - AP Pre-admission LPFH - Sprint 2</title>
+<title>Maquettes - AP Pre-admission LPFH - Sprint 2</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="app"><div class="logo">LPFH &middot; Pre-admission</div><div class="user">Maquettes v1 &mdash; Sprint 2 / Mission 3</div></header>
+<header class="app"><div class="logo">LPFH &middot; Pre-admission</div><div class="user">Maquettes &mdash; Sprint 2 / Mission 3</div></header>
 <main>
-  <h1>Maquettes v1 &mdash; profils secretaire medicale et medecin</h1>
-  <p class="sous-titre">Seance 3 (Mission 12-1) &mdash; base de navigation a valider par le Product Owner en Sprint Review.</p>
+  <h1>Maquettes &mdash; 4 profils, 12 User Stories</h1>
+  <p class="sous-titre">Seance 5 (Mission 12-3) &mdash; version presentee au Product Owner en Sprint Review.</p>
 
   <section class="carte">
-    <h2>Ecrans maquettes</h2>
-    <ul class="liste">
-      <li><a href="secretaire-creation-preadmission.html">Secretaire medicale &mdash; creation d'une pre-admission</a> (+ liste des pre-admissions du service)</li>
-      <li><a href="medecin-volet-medical.html">Medecin &mdash; consultation et complement du volet medical</a> (+ liste des volets a completer)</li>
-    </ul>
-    <p class="note">Profils departement administratif et informaticien admin : seances 4 et 5 du sprint.</p>
+    <h2>Tracabilite User Story &rarr; maquette</h2>
+    <table>
+      <tr><th>US</th><th>Intitule</th><th>Profil</th><th>Maquette</th></tr>
+      <tr><td><span class="us">US-01</span></td><td>Authentification</td><td>Tous</td><td><a href="connexion.html">connexion.html</a></td></tr>
+      <tr><td><span class="us">US-02</span></td><td>Creer une pre-admission</td><td>Secretaire medicale</td><td><a href="secretaire-creation-preadmission.html">secretaire-creation-preadmission.html</a></td></tr>
+      <tr><td><span class="us">US-03</span></td><td>Saisir la couverture</td><td>Secretaire medicale</td><td><a href="secretaire-couverture.html">secretaire-couverture.html</a> (+ bloc 4 de la creation)</td></tr>
+      <tr><td><span class="us">US-04</span></td><td>Rechercher une pre-admission</td><td>Secretaire medicale</td><td><a href="secretaire-recherche-preadmission.html">secretaire-recherche-preadmission.html</a></td></tr>
+      <tr><td><span class="us">US-05</span></td><td>Consulter le volet medical</td><td>Medecin</td><td><a href="medecin-volet-medical.html">medecin-volet-medical.html</a> + <a href="acces-refuse.html">acces-refuse.html</a></td></tr>
+      <tr><td><span class="us">US-06</span></td><td>Completer le volet medical</td><td>Medecin</td><td><a href="medecin-volet-medical.html">medecin-volet-medical.html</a></td></tr>
+      <tr><td><span class="us">US-07</span></td><td>Consulter les pre-admissions</td><td>Administratif</td><td><a href="admin-liste-preadmissions.html">admin-liste-preadmissions.html</a></td></tr>
+      <tr><td><span class="us">US-08</span></td><td>Valider la prise en charge</td><td>Administratif</td><td><a href="admin-validation-prise-en-charge.html">admin-validation-prise-en-charge.html</a></td></tr>
+      <tr><td><span class="us">US-09</span></td><td>Taux d'occupation des chambres</td><td>Administratif</td><td><a href="admin-taux-occupation.html">admin-taux-occupation.html</a></td></tr>
+      <tr><td><span class="us">US-10</span></td><td>Gerer les comptes</td><td>Informaticien admin</td><td><a href="dsi-comptes.html">dsi-comptes.html</a></td></tr>
+      <tr><td><span class="us">US-11</span></td><td>Gerer les habilitations</td><td>Informaticien admin</td><td><a href="dsi-habilitations.html">dsi-habilitations.html</a></td></tr>
+      <tr><td><span class="us">US-12</span></td><td>Consulter les journaux d'audit</td><td>Informaticien admin</td><td><a href="dsi-journal-audit.html">dsi-journal-audit.html</a></td></tr>
+    </table>
   </section>
 
   <section class="carte">
-    <h2>Parcours &mdash; secretaire medicale</h2>
-    <ol class="liste">
-      <li>Connexion (profil issu de HABILITATION active)</li>
-      <li>Liste des pre-admissions du service &rarr; bouton "Nouvelle pre-admission"</li>
-      <li>Recherche patient (nom + date de naissance) : patient existant ou creation</li>
-      <li>Saisie en 4 blocs : identite &rarr; coordonnees &rarr; hospitalisation &rarr; couverture</li>
-      <li>Recapitulatif &rarr; enregistrement : statut <em>EN_ATTENTE</em>, statut prise en charge <em>EN_ATTENTE</em></li>
-      <li>Retour a la liste, la nouvelle pre-admission y apparait</li>
-    </ol>
-  </section>
-
-  <section class="carte">
-    <h2>Parcours &mdash; medecin</h2>
-    <ol class="liste">
-      <li>Connexion</li>
-      <li>Liste "mes pre-admissions a completer" (patients de son service)</li>
-      <li>Ouverture d'une pre-admission : bandeau patient + administratif en lecture seule</li>
-      <li>Saisie du volet medical : antecedents, allergies (referentiel), traitements, avis pre-operatoire</li>
-      <li>Validation &rarr; VOLET_MEDICAL cree avec id_compte_auteur et date_saisie</li>
-    </ol>
+    <h2>Parcours par profil</h2>
+    <div class="grille">
+      <div>
+        <strong>Secretaire medicale</strong>
+        <ol class="liste">
+          <li>Connexion &rarr; liste des pre-admissions du service</li>
+          <li>Recherche patient (nom / periode) ou nouvelle pre-admission</li>
+          <li>Saisie identite &rarr; coordonnees &rarr; hospitalisation &rarr; couverture</li>
+          <li>Couverture modifiable tant que la prise en charge n'est pas validee</li>
+        </ol>
+      </div>
+      <div>
+        <strong>Medecin</strong>
+        <ol class="liste">
+          <li>Connexion &rarr; "mes pre-admissions a completer" (son service)</li>
+          <li>Bandeau patient + administratif en lecture seule</li>
+          <li>Antecedents, allergies (referentiel), traitements, avis pre-operatoire</li>
+          <li>Validation &rarr; auteur et date enregistres</li>
+        </ol>
+      </div>
+      <div>
+        <strong>Departement administratif</strong>
+        <ol class="liste">
+          <li>Connexion &rarr; pre-admissions en attente (tous services)</li>
+          <li>Verification couverture &rarr; valider ou refuser la prise en charge</li>
+          <li>Validation impossible sans couverture</li>
+          <li>Statistiques : taux d'occupation par service sur une periode libre</li>
+        </ol>
+      </div>
+      <div>
+        <strong>Informaticien admin (DSI)</strong>
+        <ol class="liste">
+          <li>Connexion &rarr; comptes utilisateurs</li>
+          <li>Creer / modifier / desactiver un compte (jamais sans profil)</li>
+          <li>Habilitations : attribuer, suspendre, revoquer</li>
+          <li>Journal d'audit en lecture seule &mdash; aucun acces aux donnees patients</li>
+        </ol>
+      </div>
+    </div>
   </section>
 
   <section class="carte">
     <h2>Fil rouge RGPD rendu visible des la maquette</h2>
     <ul class="liste">
-      <li>Bandeau d'avertissement en haut de chaque ecran manipulant des donnees personnelles ou de sante.</li>
-      <li>Section volet medical <strong>masquee</strong> (hachurage explicite) sur l'ecran secretaire.</li>
-      <li>Section prise en charge financiere <strong>masquee</strong> sur l'ecran medecin.</li>
-      <li>Etiquette "Donnee de sante" sur chaque bloc concerne, "Lecture seule" sur l'administratif cote medecin.</li>
-      <li>Champs obligatoires signales par un asterisque rouge.</li>
-      <li>Mention du journal d'audit (table JOURNAL_AUDIT) sur les ecrans sensibles.</li>
+      <li>Bandeau d'avertissement RGPD sur chaque ecran manipulant des donnees personnelles ou de sante.</li>
+      <li>Volet medical <strong>masque</strong> (hachurage) pour secretaire et administratif ; prise en charge financiere masquee pour le medecin.</li>
+      <li>DSI : gestion des acces sans aucune donnee patient ; journal d'audit non modifiable.</li>
+      <li>Ecran "acces refuse" commun pour les acces par URL directe, avec journalisation du refus.</li>
+      <li>Statistiques d'occupation agregees, sans nom de patient.</li>
     </ul>
   </section>
 
@@ -60,13 +88,26 @@
     <table>
       <tr><th>Bloc d'ecran</th><th>Table(s)</th></tr>
       <tr><td>Identite / coordonnees patient</td><td>PATIENT</td></tr>
-      <tr><td>Hospitalisation</td><td>PRE_ADMISSION, SERVICE</td></tr>
-      <tr><td>Couverture</td><td>PATIENT_MUTUELLE, MUTUELLE</td></tr>
+      <tr><td>Hospitalisation, statuts, validation</td><td>PRE_ADMISSION, SERVICE</td></tr>
+      <tr><td>Couverture</td><td>PATIENT (num_secu), PATIENT_MUTUELLE, MUTUELLE</td></tr>
       <tr><td>Antecedents / traitements / avis</td><td>VOLET_MEDICAL</td></tr>
       <tr><td>Allergies</td><td>PATIENT_ALLERGIE, ALLERGIE</td></tr>
-      <tr><td>Utilisateur connecte et droits</td><td>COMPTE, PERSONNEL, HABILITATION, PROFIL</td></tr>
+      <tr><td>Taux d'occupation</td><td>CHAMBRE, SEJOUR, SERVICE</td></tr>
+      <tr><td>Comptes et habilitations</td><td>COMPTE, PERSONNEL, HABILITATION, PROFIL</td></tr>
       <tr><td>Tracabilite</td><td>JOURNAL_AUDIT</td></tr>
     </table>
+  </section>
+
+  <section class="carte">
+    <h2>Ecarts maquette / modele a arbitrer</h2>
+    <ul class="liste">
+      <li>Refus de prise en charge avec commentaire : pas de colonne commentaire dans PRE_ADMISSION.</li>
+      <li>Motif de suspension d'une habilitation : seul motif_revocation existe dans HABILITATION.</li>
+      <li>Mot de passe provisoire a changer a la 1re connexion : pas d'indicateur dans COMPTE.</li>
+      <li>"Enregistrer en brouillon" : pas de statut BROUILLON dans PRE_ADMISSION (cf. questions PO n&deg;1).</li>
+      <li>Taux d'occupation : chambres en MAINTENANCE / FERMEE a exclure ou non du nombre de lits ?</li>
+    </ul>
+    <p class="note">Voir aussi <a href="questions-product-owner.md">questions-product-owner.md</a>.</p>
   </section>
 </main>
 </body>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Administratif - Validation de la prise en charge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Nadia DUPONT &middot; <strong>Departement administratif</strong> &middot; Administration et finances &middot; Deconnexion</div>
+</header>
+<nav class="fil">Accueil &rsaquo; Pre-admissions a traiter &rsaquo; <strong>PA-0142 &mdash; Prise en charge</strong></nav>
+
+<main>
+  <h1>Validation de la prise en charge &mdash; PA-0142</h1>
+  <p class="sous-titre"><span class="us">US-08</span> Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; profil departement administratif</p>
+
+  <div class="bandeau-patient">
+    <div><span>Patient</span><strong>DUPONT Claire</strong></div>
+    <div><span>Nee le</span><strong>12/04/1978</strong></div>
+    <div><span>Service</span><strong>Chirurgie</strong></div>
+    <div><span>Hospitalisation prevue</span><strong>14/10/2026</strong></div>
+    <div><span>Creee par</span><strong>Julie MARTIN &middot; 22/09/2026</strong></div>
+  </div>
+
+  <div class="rgpd">
+    <strong>RGPD &mdash;</strong> la validation enregistre le valideur (id_compte_valideur) et la date (date_validation).
+    Le volet medical n'est pas accessible depuis ce profil.
+  </div>
+
+  <section class="carte">
+    <h2>Pre-admission <span class="badge sensible">Lecture seule</span></h2>
+    <div class="grille">
+      <div class="champ"><label>Motif d'hospitalisation</label><input value="Arthroscopie du genou droit" readonly></div>
+      <div class="champ"><label>Adresse</label><input value="14 rue des Lilas, 59400 Cambrai" readonly></div>
+    </div>
+  </section>
+
+  <section class="carte">
+    <h2>Elements de couverture a verifier <span class="badge sensible">Lecture seule</span></h2>
+    <table>
+      <tr><th>Element</th><th>Valeur</th><th>Controle</th></tr>
+      <tr><td>NIR</td><td>2 78 04 59 122 034 21</td><td><span class="badge validee">Renseigne</span></td></tr>
+      <tr><td>Mutuelle</td><td>Harmonie Mutuelle &mdash; HM-99823014</td><td><span class="badge validee">Renseignee</span></td></tr>
+      <tr><td>Fin des droits mutuelle</td><td>31/12/2026</td><td><span class="badge validee">Valide a la date d'hospitalisation</span></td></tr>
+    </table>
+  </section>
+
+  <section class="carte">
+    <h2>Medical</h2>
+    <div class="masque">Volet medical reserve au profil <strong>Medecin</strong> &mdash; non accessible depuis ce profil.</div>
+  </section>
+
+  <section class="carte">
+    <h2>Decision</h2>
+    <div class="grille">
+      <div class="champ"><label>Decision <span class="obli">*</span></label><select><option>Valider la prise en charge</option><option>Refuser la prise en charge</option></select></div>
+      <div class="champ"><label>Valideur / date</label><input value="Nadia DUPONT - 06/10/2026 (automatique)" readonly></div>
+      <div class="champ large"><label>Commentaire (obligatoire en cas de refus)</label><textarea placeholder="Ex : droits mutuelle expires, attestation a fournir"></textarea></div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn-secondaire">Retour a la liste</button>
+      <button type="button" class="btn-danger">Refuser</button>
+      <button type="button" class="btn-primaire">Valider la prise en charge</button>
+    </div>
+  </section>
+
+  <section class="carte" style="margin-top:26px">
+    <h2>Cas bloquant &mdash; PA-0143 sans couverture</h2>
+    <div class="alerte erreur">Validation impossible : aucune donnee de couverture n'est rattachee a cette pre-admission.
+      La secretaire medicale du service Radiologie doit d'abord renseigner la couverture (US-03).</div>
+    <div class="actions">
+      <button type="button" class="btn-secondaire">Retour a la liste</button>
+      <button type="button" class="btn-primaire" disabled>Valider la prise en charge</button>
+    </div>
+  </section>
+
+  <section class="carte">
+    <h2>Vue secretaire apres validation</h2>
+    <p>Dans la liste de la secretaire, la colonne "Prise en charge" passe a <span class="badge validee">Validee</span> &mdash; aucun bouton de validation n'existe sur son profil.</p>
+  </section>
+</main>
+</body>
+</html>

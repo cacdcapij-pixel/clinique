@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette v1 - Informaticien admin - Habilitations</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo">LPFH &middot; Pre-admission</div>
+  <div class="user">Marc GOUSSE &middot; <strong>Informaticien admin</strong> &middot; DSI &middot; Deconnexion</div>
+</header>
+<nav class="fil">Administration &rsaquo; Personnel &rsaquo; <strong>ROUSSEL Emma &mdash; Habilitations</strong></nav>
+
+<main>
+  <h1>Habilitations &mdash; ROUSSEL Emma</h1>
+  <p class="sous-titre"><span class="us">US-11</span> Maquette v1 &mdash; Sprint 2 / Mission 3 &mdash; profil informaticien admin</p>
+
+  <div class="bandeau-patient">
+    <div><span>Personnel</span><strong>ROUSSEL Emma</strong></div>
+    <div><span>Fonction</span><strong>Neurologue</strong></div>
+    <div><span>Service</span><strong>Neurologie</strong></div>
+    <div><span>Entree</span><strong>15/03/2021</strong></div>
+    <div><span>Compte</span><strong>e.roussel <span class="badge validee">Actif</span></strong></div>
+  </div>
+
+  <div class="rgpd">
+    <strong>RGPD &mdash;</strong> chaque attribution, suspension et revocation est journalisee et conservee (date, auteur, motif).
+    Une revocation prend effet immediatement, y compris sur une session deja ouverte.
+  </div>
+
+  <section class="carte">
+    <h2>Habilitations</h2>
+    <table>
+      <tr><th>Profil</th><th>Debut</th><th>Fin</th><th>Statut</th><th>Revocation</th><th></th></tr>
+      <tr><td>Medecin</td><td>15/03/2021</td><td>&mdash;</td><td><span class="badge attente">Suspendue</span></td><td>&mdash;</td>
+        <td><button type="button" class="btn-secondaire btn-petit">Reactiver</button> <button type="button" class="btn-danger btn-petit">Revoquer</button></td></tr>
+      <tr class="revoquee"><td>Chef de service (interim)</td><td>01/07/2025</td><td>31/08/2025</td><td><span class="badge refusee">Revoquee</span></td><td>31/08/2025 &middot; Fin de l'interim</td><td></td></tr>
+    </table>
+    <p class="note">Une habilitation = un profil + un statut (ACTIVE / SUSPENDUE / REVOQUEE) + une validite (debut, fin). Une habilitation revoquee n'est plus modifiable.</p>
+  </section>
+
+  <section class="carte">
+    <h2>Attribuer une habilitation</h2>
+    <div class="grille trois">
+      <div class="champ"><label>Profil <span class="obli">*</span></label><select><option>Chef de service</option><option>Medecin</option><option>Secretaire medicale</option><option>Administratif</option><option>Informaticien admin</option></select></div>
+      <div class="champ"><label>Date de debut <span class="obli">*</span></label><input type="date" value="2026-10-06"></div>
+      <div class="champ"><label>Date de fin</label><input type="date" placeholder="Illimitee"></div>
+    </div>
+    <div class="actions"><button type="button" class="btn-primaire">Attribuer</button></div>
+  </section>
+
+  <div class="grille">
+    <section class="carte modale">
+      <h2>Suspendre l'habilitation "Medecin"</h2>
+      <div class="champ"><label>Motif <span class="obli">*</span></label><input value="Formation obligatoire a renouveler"></div>
+      <p class="note">Les droits sont retires, l'habilitation et la fiche personnel sont conservees. Reactivable a tout moment.</p>
+      <div class="actions"><button type="button" class="btn-secondaire">Annuler</button><button type="button" class="btn-primaire">Suspendre</button></div>
+    </section>
+    <section class="carte modale">
+      <h2>Revoquer l'habilitation "Medecin"</h2>
+      <div class="champ"><label>Motif de revocation <span class="obli">*</span></label><input value="Depart de la clinique"></div>
+      <div class="alerte erreur" style="margin-top:12px">Action definitive et immediate. Date de revocation enregistree : 06/10/2026 09:14.</div>
+      <div class="actions"><button type="button" class="btn-secondaire">Annuler</button><button type="button" class="btn-danger">Revoquer</button></div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
