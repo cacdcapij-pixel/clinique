@@ -29,9 +29,9 @@ const PAGES = [
     'nouvelle-preadmission' => [
         'titre'   => 'Nouvelle pré-admission',
         'desc'    => 'Identité, coordonnées, motif, service, mutuelle (US-02, US-03)',
-        'url'     => 'page.php?p=nouvelle-preadmission',
+        'url'     => 'nouvelle-preadmission.php',
         'profils' => ['SECRETAIRE_MEDICALE'],
-        'etat'    => 'Sprint 3',
+        'etat'    => 'dispo',
     ],
     'volet-medical' => [
         'titre'   => 'Volet médical',

@@ -82,3 +82,22 @@ code{background:var(--gris);padding:1px 5px;border-radius:3px;font-size:12.5px}
 .resume div strong{font-size:20px}
 .badge{white-space:nowrap}
 td:first-child{white-space:nowrap}
+
+/* ---- Création d'une pré-admission + aperçu sans connexion ---- */
+.barre-apercu{background:#fef9e7;border-bottom:1px solid #f7dc6f;padding:7px 20px;font-size:12.5px;color:#7d6608}
+.barre-apercu a{display:inline-block;margin:2px 4px;padding:2px 9px;border:1px solid #f4d03f;border-radius:10px;background:#fff;color:#7d6608;text-decoration:none}
+.barre-apercu a.actif{background:#f4d03f;font-weight:bold}
+a.btn{display:inline-block;font:inherit;padding:8px 16px;border-radius:3px;border:1px solid var(--bleu);text-decoration:none}
+a.btn.btn-danger{border-color:var(--rouge)}
+.titre-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.titre-actions h1{margin:0}
+.titre-actions + .sous-titre{margin-top:4px}
+input.invalide,select.invalide{border-color:var(--rouge);background:#fdedec}
+.err-champ{color:var(--rouge);font-size:12px;margin-top:3px}
+.succes{background:#d5f5e3;border-left:4px solid var(--vert);color:#145a32;padding:10px 14px;margin-bottom:18px;border-radius:0 3px 3px 0;font-size:13px}
+tr.ligne-nouvelle td{background:#eafaf1}
+table.recap td:first-child{width:34%;color:var(--gris-txt)}
+.alerte-doublon{border-color:#f5cba7}
+.choix-patient{display:flex;flex-direction:column;gap:8px}
+.choix-patient label{font-size:13px;color:var(--texte);display:flex;gap:8px;align-items:baseline}
+.etapes .etape.active,.etapes .etape.faite{transition:none}

@@ -21,7 +21,26 @@ $badges = [
 
 entete('Pré-admissions', $u, '<a href="accueil.php">Accueil</a> &rsaquo; <strong>Pré-admissions</strong>');
 ?>
-<h1>Pré-admissions</h1>
+<?php
+$cree = (int) ($_GET['cree'] ?? 0);
+$ligne_cree = null;
+foreach ($lignes as $l) {
+    if ((int) $l['id_pre_admission'] === $cree) {
+        $ligne_cree = $l;
+    }
+}
+?>
+<?php if ($ligne_cree): ?>
+  <div class="succes">Pré-admission <strong>PA-<?= sprintf('%04d', $cree) ?></strong> enregistrée pour
+    <strong><?= e($ligne_cree['nom_usage'] . ' ' . $ligne_cree['prenom']) ?></strong>
+    (hospitalisation prévue le <?= e(date_fr($ligne_cree['date_hospitalisation_prevue'])) ?>) &mdash; statut « En attente ».</div>
+<?php endif; ?>
+<div class="titre-actions">
+  <h1>Pré-admissions</h1>
+  <?php if (peut_acceder($profil, 'nouvelle-preadmission')): ?>
+    <a class="btn btn-primaire" href="nouvelle-preadmission.php">+ Nouvelle pré-admission</a>
+  <?php endif; ?>
+</div>
 <p class="sous-titre">
   <?= $profil === 'ADMINISTRATIF'
       ? 'Toute la clinique'
@@ -45,7 +64,7 @@ entete('Pré-admissions', $u, '<a href="accueil.php">Accueil</a> &rsaquo; <stron
       <th>Motif</th><th>Statut</th><th>Mutuelle</th>
     </tr>
     <?php foreach ($lignes as $l): [$cls, $lib] = $badges[$l['statut']]; ?>
-    <tr>
+    <tr<?= (int) $l['id_pre_admission'] === $cree ? ' class="ligne-nouvelle"' : '' ?>>
       <td>PA-<?= sprintf('%04d', $l['id_pre_admission']) ?></td>
       <td><?= e($l['nom_usage'] . ' ' . $l['prenom']) ?></td>
       <td><?= e(date_fr($l['date_naissance'])) ?></td>

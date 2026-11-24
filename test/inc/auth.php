@@ -64,6 +64,9 @@ function fermer_session(): void
  */
 function utilisateur(): ?array
 {
+    if (empty($_SESSION['id_compte']) && apercu_actif()) {
+        ouvrir_session_apercu(APERCU_COMPTE);
+    }
     if (empty($_SESSION['id_compte'])) {
         return null;
     }
@@ -126,6 +129,38 @@ function exiger_page(string $code_page): array
     }
     return $u;
 }
+
+// ---------------------------------------------------------------------
+// Aperçu sans connexion (config.php : APERCU_SANS_CONNEXION).
+// On passe quand même par V_CONNEXION : un compte de refus (t.petit…)
+// n'ouvre rien, et les droits par profil restent ceux de la base.
+// ---------------------------------------------------------------------
+function apercu_actif(): bool
+{
+    return MODE_TEST && APERCU_SANS_CONNEXION;
+}
+
+function ouvrir_session_apercu(string $identifiant): bool
+{
+    $req = bdd()->prepare('SELECT * FROM V_CONNEXION WHERE identifiant = ? ORDER BY id_profil');
+    $req->execute([$identifiant]);
+    $lignes = $req->fetchAll();
+    if (!$lignes) {
+        return false;
+    }
+    ouvrir_session($lignes);
+    return true;
+}
+
+// Comptes proposés dans la barre d'aperçu (identifiant => libellé court).
+const APERCU_COMPTES = [
+    'j.martin'   => 'Secrétaire (Chirurgie)',
+    's.leroy'    => 'Secrétaire (Neurologie)',
+    'k.benali'   => 'Médecin',
+    'a.covillon' => 'Médecin + chef de service',
+    'n.dupont'   => 'Administratif',
+    'm.gousse'   => 'DSI',
+];
 
 // ---------------------------------------------------------------------
 // Jeton CSRF pour les formulaires (connexion, choix du profil)
