@@ -13,3 +13,6 @@ test.docx
 .idea/
 Thumbs.db
 desktop.ini
+
+# Identifiants locaux (BDD, mot de passe des comptes de test)
+test/config.local.php

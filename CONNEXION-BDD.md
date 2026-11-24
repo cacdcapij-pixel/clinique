@@ -9,8 +9,8 @@
 | **Port** | **3307** (pas 3306 : ce port est pris par MySQL 8.0) |
 | Service Windows | `MariaDB1011` (démarrage automatique) |
 | Base | `clinique` — `utf8mb4` / `utf8mb4_unicode_ci` |
-| Utilisateur applicatif | `charle` / `charle` (tous droits sur `clinique`) |
-| Compte root | `root` / `root` |
+| Utilisateur applicatif | voir `test/config.local.php` (non versionné) — tous droits sur `clinique` |
+| Compte root | défini à l'installation, non versionné |
 | Binaires | `C:\Program Files\MariaDB 10.11\bin` (ajouté au PATH) |
 
 ## Pourquoi une installation séparée et pas le MariaDB de WAMP
@@ -24,13 +24,13 @@ Travailler directement en 10.11 supprime cette classe de problèmes.
 
 ### En ligne de commande (nouveau terminal)
 
-    mysql -u charle -p --port=3307 --host=127.0.0.1 clinique
+    mysql -u <utilisateur> -p --port=3307 --host=127.0.0.1 clinique
 
 ### Avec phpMyAdmin (WAMP)
 
 Démarre WAMP, puis ouvre <http://localhost/phpmyadmin>.
 Un serveur **« MariaDB 10.11 - clinique »** a été ajouté dans le sélecteur
-de la page de connexion — choisis-le, puis `charle` / `charle`.
+de la page de connexion — choisis-le, puis le compte applicatif de `test/config.local.php`.
 
 Config modifiée : `C:\wamp64\apps\phpmyadmin5.2.3\config.inc.php`
 (sauvegarde : `config.inc.php.bak`).
@@ -39,14 +39,14 @@ Config modifiée : `C:\wamp64\apps\phpmyadmin5.2.3\config.inc.php`
 
     $pdo = new PDO(
         'mysql:host=127.0.0.1;port=3307;dbname=clinique;charset=utf8mb4',
-        'charle',
-        'charle',
+        DB_USER,   // test/config.local.php
+        DB_PASS,
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 
 ## Exporter vers le serveur de la clinique
 
-    mysqldump -u charle -p --port=3307 --host=127.0.0.1 ^
+    mysqldump -u <utilisateur> -p --port=3307 --host=127.0.0.1 ^
       --default-character-set=utf8mb4 clinique > clinique.sql
 
 ## Remarques
